@@ -3,3 +3,6 @@ def saludo():
 
 def otrosaludo():
     print("Hello Maria")
+
+saludo()
+otrosaludo()
