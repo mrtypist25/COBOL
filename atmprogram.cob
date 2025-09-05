@@ -8,7 +8,8 @@
            02 FName PIC X(15).
            02 LName PIC X(15).
            02 Withdraw PIC 9(3).
-           02 Balance PIC 9(3)V99.
+           02 Balance PIC 9(3).
+           02 NewAmount PIC 9(3).
       
        01 Dec PIC X(20).
 
@@ -19,8 +20,11 @@
        ACCEPT Withdraw
        IF Withdraw less than 101
            COMPUTE Balance = OriginalAmount - Withdraw
-           MOVE Balance TO OriginalAmount
-           DISPLAY "Money available: $"Balance
+           MOVE Balance TO NewAmount
+           DISPLAY "Original amount: $"OriginalAmount
+           DISPLAY "Withdraw: $"Balance
+           DISPLAY "Available amount: $"NewAmount
+           
            
        ELSE 
            DISPLAY "ERROR: max to withdraw is 100"
