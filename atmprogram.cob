@@ -54,7 +54,7 @@
                MOVE "Mike" TO FName.
                MOVE "White" TO LName.
                MOVE 1000 TO Loan.
-               MOVE WBalance TO Debt.
+               MOVE WABalance TO Debt.
                WRITE Customer
                END-WRITE.
            CLOSE DFile.
