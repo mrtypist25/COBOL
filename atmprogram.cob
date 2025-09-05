@@ -20,6 +20,7 @@
            02 Debt PIC 9(3).
            02 Withdraw PIC 9(3).
            02 Balance PIC 9(3).
+           02 ABalance PIC 9(3).
        WORKING-STORAGE SECTION.
        01 WCustomer.
            02 WLoan PIC 9(4).
@@ -31,6 +32,7 @@
            02 WDebt PIC 9(3).
            02 WWithdraw PIC 9(3).
            02 WBalance PIC 9(3).
+           02 WABalance PIC 9(3).
        01 Dec PIC X(25).
        
        PROCEDURE DIVISION.
@@ -38,8 +40,13 @@
                DISPLAY Dec" WELCOME "Dec.
                DISPLAY "Amount to withdraw: "WITH NO ADVANCING 
                ACCEPT WWithdraw.
-               COMPUTE WBalance = WLoan - WWithdraw
-               DISPLAY "Actual balance: "WBalance. 
+               IF WWithdraw < 301
+                   COMPUTE WBalance = WLoan - WWithdraw
+                   DISPLAY "Actual balance: "WBalance
+               ELSE
+                   DISPLAY "The max to withdraw is 300"
+               END-IF.
+
 
            OPEN OUTPUT DFile
                MOVE 00001 TO IDnum.
