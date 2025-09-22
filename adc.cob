@@ -45,7 +45,7 @@
            DISPLAY"Last name: "WITH NO ADVANCING 
                ACCEPT lName
 
-           OPEN OUTPUT customerFile
+           OPEN EXTEND customerFile
                WRITE custData
                END-WRITE
            CLOSE customerFile.
