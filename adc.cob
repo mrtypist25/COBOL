@@ -1,5 +1,11 @@
        IDENTIFICATION DIVISION.
        PROGRAM-ID. adc. 
+      *---------------------------------------------
+      *     
+      *                   ADC
+      *         Automated Data Collector Program
+      *  
+      *---------------------------------------------
 
        ENVIRONMENT DIVISION.
        INPUT-OUTPUT SECTION.
