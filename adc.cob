@@ -21,22 +21,22 @@
        FILE SECTION.
        FD OrgFile.
        01 StateData.
-           02 idNum PIC 9(5).
+           02 idNum PIC X(5).
            02 sName PIC A(15).
            02 cName PIC A(15).
        FD SortedFile.
        01 SStateData.
-           02 SidNum PIC 9(5).
+           02 SidNum PIC X(5).
            02 SsName PIC A(15).
            02 ScName PIC A(15).
        SD WorkFile.
        01 WStateData.
-           02 WidNum PIC 9(5).
+           02 WidNum PIC X(5).
            02 WsName PIC A(15).
            02 WcName PIC A(15).
        WORKING-STORAGE SECTION.
        01 ws-StateData.
-           02 ws-idNum PIC 9(5).
+           02 ws-idNum PIC X(5).
            02 ws-sName PIC 9(15).
            02 ws-cName PIC 9(15).
        01 secretKey PIC 9(4).
