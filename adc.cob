@@ -9,7 +9,7 @@
 
        ENVIRONMENT DIVISION.
        INPUT-OUTPUT SECTION.
-       *> File use to collect the user data.
+      * Files used for this program.
        FILE-CONTROL.
        SELECT WorkFile ASSIGN TO "work.tmp".
        SELECT OrgFile ASSIGN TO "statenames.txt"
@@ -17,7 +17,7 @@
        SELECT SortedFile ASSIGN TO "statenames2.txt"
            ORGANIZATION IS LINE SEQUENTIAL.       
        DATA DIVISION.
-       *> defining layout for the file.
+      * Establishing file layout.
        FILE SECTION.
        FD OrgFile.
        01 StateData.
@@ -43,20 +43,23 @@
        
        
        PROCEDURE DIVISION.
+      *Setting a password
        PERFORM keyPass UNTIL secretKey = 1357
-       *> Data is appended in the file           
+      
+      *Collecting data          
        PERFORM updateCustFile
-       *> Sorting file
+
+      *Organizing data
        PERFORM sortAfile
 
 
        STOP RUN.
-       *>Setting a key code to get acces to database
+      
        keyPass.       
        DISPLAY"Enter your secret code: "WITH NO ADVANCING
        ACCEPT secretKey.
 
-
+      
        updateCustFile.
            display"ID number: "WITH NO ADVANCING 
                ACCEPT idNum
