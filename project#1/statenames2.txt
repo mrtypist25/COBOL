@@ -1,5 +1,6 @@
 00001Georgia        Atlanta
 00002California     Palo Alto
+00009N/A            N/A
 00023a              a
 00100California     Fresno
 00232Colorado       Denver
