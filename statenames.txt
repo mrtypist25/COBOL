@@ -1,3 +1,5 @@
 00232Colorado       Denver
 00100California     Fresno
 00500New York       New York
+00002California     Palo Alto
+00001Georgia        Atlanta
