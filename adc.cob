@@ -40,6 +40,16 @@
            02 ws-sName PIC X(15).
            02 ws-cName PIC X(15).
        01 secretKey PIC 9(4).
+       
+       01 ws-dateAndTime.
+           02 ws-date.
+               03 ws-month PIC 9(2).
+               03 ws-day PIC 9(2).
+               03 ws-year PIC 9(4).
+           02 ws-time.
+               03 ws-hour PIC 9(2).
+               03 ws-minut PIC 9(2).
+               03 ws-seconds PIC 9(2).
 
        PROCEDURE DIVISION.
        PERFORM keyPass UNTIL secretKey = 1357
@@ -65,6 +75,8 @@
            DISPLAY"City name: "WITH NO ADVANCING 
                ACCEPT cName
 
+           MOVE FUNCTION CURRENT-DATE TO ws-dateAndTime
+
            OPEN EXTEND OrgFile
                WRITE StateData
                END-WRITE
@@ -74,3 +86,4 @@
        SORT WorkFile ON ASCENDING KEY idNum
            USING OrgFile
            GIVING SortedFile.
+       
