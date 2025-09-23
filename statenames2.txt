@@ -1,3 +1,7 @@
 00000California     Fresno
+00000California     PaloAlto
+00001colorado       Denver
 00023California     Los Angeles
+00234California     Palo Alto
 00323Texas          Houston
+00523Washington     Washington D.C.
