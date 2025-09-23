@@ -11,28 +11,42 @@
        INPUT-OUTPUT SECTION.
        *> File use to collect the user data.
        FILE-CONTROL.
-       SELECT customerFile ASSIGN TO "customers.txt"
-           ORGANIZATION IS LINE SEQUENTIAL 
-           ACCESS IS SEQUENTIAL.       
+       SELECT WorkFile ASSIGN TO "work.tmp".
+       SELECT OrgFile ASSIGN TO "statenames.txt"
+           ORGANIZATION IS LINE SEQUENTIAL.
+       SELECT SortedFile ASSIGN TO "statenames2.txt"
+           ORGANIZATION IS LINE SEQUENTIAL.       
        DATA DIVISION.
        *> defining layout for the file.
        FILE SECTION.
-       FD customerFile.
-       01 custData.
+       FD OrgFile.
+       01 StateData.
            02 idNum PIC 9(5).
-           02 fName PIC A(15).
-           02 lName PIC A(15).
+           02 sName PIC A(15).
+           02 cName PIC A(15).
+       FD SortedFile.
+       01 SStateData.
+           02 SidNum PIC 9(5).
+           02 SsName PIC A(15).
+           02 ScName PIC A(15).
+       SD WorkFile.
+       01 WStateData.
+           02 WidNum PIC 9(5).
+           02 WsName PIC A(15).
+           02 WcName PIC A(15).
        WORKING-STORAGE SECTION.
-       01 ws-custData.
+       01 ws-StateData.
            02 ws-idNum PIC 9(5).
-           02 ws-fName PIC 9(15).
-           02 ws-lName PIC 9(15).
+           02 ws-sName PIC 9(15).
+           02 ws-cName PIC 9(15).
        01 secretKey PIC 9(4).
 
        PROCEDURE DIVISION.
        PERFORM keyPass UNTIL secretKey = 1357
-       *> We append the data in the file           
+       *> Data is appended in the file           
        PERFORM updateCustFile
+       *> Sorting file
+       PERFORM sortAfile
 
        STOP RUN.
        *>Setting a key code to get acces to database
@@ -45,13 +59,18 @@
            display"ID number: "WITH NO ADVANCING 
                ACCEPT idNum
 
-           DISPLAY"First name: "WITH NO ADVANCING 
-               ACCEPT fName
+           DISPLAY"State name: "WITH NO ADVANCING 
+               ACCEPT sName
            
-           DISPLAY"Last name: "WITH NO ADVANCING 
-               ACCEPT lName
+           DISPLAY"City name: "WITH NO ADVANCING 
+               ACCEPT cName
 
-           OPEN EXTEND customerFile
-               WRITE custData
+           OPEN EXTEND OrgFile
+               WRITE StateData
                END-WRITE
-           CLOSE customerFile.
+           CLOSE OrgFile.
+       
+       sortAfile.
+       SORT WorkFile ON ASCENDING KEY SidNum
+           USING OrgFile
+           GIVING SortedFile.
