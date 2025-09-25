@@ -108,8 +108,9 @@
                ACCEPT sName
            
            DISPLAY"City name: "WITH NO ADVANCING 
-               ACCEPT cName
-           DISPLAY"Type any key and hit enter to finish: "WITH NO ADVANCING
+           ACCEPT cName
+           DISPLAY"Type any key and hit enter to finish: "
+           WITH NO ADVANCING
            ACCEPT spc
            MOVE SPACE TO spc
 
