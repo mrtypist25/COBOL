@@ -109,10 +109,11 @@
            
            DISPLAY"City name: "WITH NO ADVANCING 
                ACCEPT cName
-           DISPLAY"Data is correc?: "WITH NO ADVANCING
+           DISPLAY"Type y to store data: "WITH NO ADVANCING
            ACCEPT spc
-           
            MOVE SPACE TO spc
+
+      *    Every time a record is included the time and date is set
            MOVE FUNCTION CURRENT-DATE TO ws-gettingData
 
            OPEN EXTEND OrgFile
