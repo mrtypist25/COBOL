@@ -1,7 +1,5 @@
-00232Colorado       Denver
-00100California     Fresno
-00500New York       New York
-00002California     Palo Alto
-00001Georgia        Atlanta
-00023a              a
-00009N/A            N/A
+00023California     Palo Alto      20250924193910
+01357California     Fresno         20250924193924
+00087 Washington     Washington D.C.20250924194402
+00056 California     Fresno         20250924194649
+00022 Colorado       Denver         20250924194729
